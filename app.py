@@ -73,10 +73,10 @@ def generate_answer():
 
 st.text_input("Talk to the bot", key="input_text",on_change = generate_answer)
 
-count = 0
-for chat in st.session_state.history:
-    chat['key']=count
-    count +=1
-    st_message(**chat)  # unpacking
+# count = 0
+# for chat in st.session_state.history:
+#     chat['key']=count
+#     count +=1
+#     st_message(**chat)  # unpacking
     
 
