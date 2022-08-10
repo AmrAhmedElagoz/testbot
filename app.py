@@ -28,7 +28,8 @@ if st.button("Add New Context"):
 	context = st.text_area("please enter your article")
 	if st.session_state.count>1:
 		for i in range(st.session_state.count-1):
-			context = st.text_area("please enter your article")
+			context = st.text_area("please enter your article", 
+            key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
 
 
 
