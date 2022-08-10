@@ -19,6 +19,10 @@ def load_model():
     return model
 qa = load_model()
 
+@st.cache(allow_output_mutation=True)
+def save_data():
+    return []
+
 if 'count' not in st.session_state:
 	st.session_state.count = 0
 
@@ -30,12 +34,14 @@ if st.button("Add New Context"):
 		for i in range(st.session_state.count-1):
 			context = st.text_area("please enter your article", 
             key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
+            
 
 
 
 
 if "history" not in st.session_state:
     st.session_state.history = []
+    save_data().append({"context": context})
 
 
 
