@@ -24,13 +24,12 @@ if 'count' not in st.session_state:
 	st.session_state.count = 0
 
 
-if st.button("Add New Context"):
-	st.session_state.count += 1
-	if st.session_state.count>1:
-		for i in range(st.session_state.count-1):
-            head = st.text_input("please enter topic tag")
-	        context = st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
-
+if st.button('add new context'):
+    st.session_state.count += 1
+    if st.session_state.count > 1:
+        for i in range(st.session_state.count - 1):
+            head = st.text_input("enter the topic name")
+            context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
 
 
 
