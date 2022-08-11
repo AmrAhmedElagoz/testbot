@@ -27,7 +27,7 @@ head = st.text_input("enter the topic name")
 context= st.text_area("please enter your topic")
 
 
-if st.button('add new context', key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999))):
+if st.button('add new context'):
     st.session_state.count += 1
     if st.session_state.count > 1:
         for i in range(st.session_state.count - 1):
