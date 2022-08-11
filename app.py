@@ -20,8 +20,8 @@ def load_model():
 qa = load_model()
 
 
-# if 'count' not in st.session_state:
-# 	st.session_state.count = 0
+if 'count' not in st.session_state:
+	st.session_state.count = 0
 
 head = st.text_input("enter the topic name")
 context= st.text_area("please enter your topic")
@@ -31,8 +31,8 @@ if st.button('add new context'):
     # st.session_state.count += 1
     # if st.session_state.count > 1:
         # for i in range(st.session_state.count - 1):
-            head = st.text_input("enter the topic name")
-            context= st.text_area("please enter your topic")
+            head = st.text_input("enter the topic name", key= st.session_state.count + 1)
+            context= st.text_area("please enter your topic", key= st.session_state.count + 1)
 
 
 
