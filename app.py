@@ -20,14 +20,14 @@ def load_model():
 qa = load_model()
 
 
-if 'count' not in st.session_state:
-	st.session_state.count = 0
+# if 'count' not in st.session_state:
+# 	st.session_state.count = 0
 
 
 if st.button('add new context'):
-    st.session_state.count += 1
-    if st.session_state.count > 1:
-        for i in range(st.session_state.count - 1):
+    # st.session_state.count += 1
+    # if st.session_state.count > 1:
+        # for i in range(st.session_state.count - 1):
             head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
             context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
 
