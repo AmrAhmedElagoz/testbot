@@ -31,7 +31,8 @@ if st.button('add new context'):
             head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
             context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
 
-
+st.write(head)
+st.write(context)
 
 if "history" not in st.session_state:
     st.session_state.history = []
