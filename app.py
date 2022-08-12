@@ -28,13 +28,13 @@ context= st.text_area("please enter your topic")
 
 
 def callback():
-    button_state= st.session_state["button"]
+    # button_state= st.session_state["button"]
     head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
     context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
     
 
     
-st.button('add new context', key = 'button', on_click= callback)
+st.button('add new context', on_click= callback)
 # if st.button('add new context', key = 'button'):
     # st.session_state.count += 1
     # if st.session_state.count > 1:
