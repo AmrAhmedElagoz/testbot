@@ -3,6 +3,7 @@ from streamlit_chat import message as st_message
 from transformers import pipeline
 import random
 import string
+# import SessionState
 
 
 # @st.experimental_singleton
@@ -19,22 +20,22 @@ if 'count' not in st.session_state:
 head = st.text_input("enter the topic name")
 context= st.text_area("please enter your topic")
 
-
+@st.experimental_singleton
 def callback():
     # button_state= st.session_state["button"]
     head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
     context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
-    
 
-    
-add= st.button('add new context', on_click= callback)
 
-if add:
-    st.session_state.count += 1
 
-for i in range(st.session_state.count):
-    head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
-    context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
+st.button('add new context', on_click= callback)
+
+# if add:
+#     st.session_state.count += 1
+
+# for i in range(st.session_state.count):
+#     head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
+#     context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
 # if st.button('add new context', key = 'button'):
     # st.session_state.count += 1
     # if st.session_state.count > 1:
