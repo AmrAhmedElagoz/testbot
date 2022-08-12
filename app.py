@@ -4,13 +4,6 @@ from transformers import pipeline
 import random
 import string
 
-# context = '''
-# نحن شركة متخصصة فى مجال الزكاء الاصطناعى.
-# نقدم العديد من الخدمات كالحلول للشركات و تدريبات فى مجال الزكاء الاصطناعى.
-# التدريبات المتاحة الان هى ETE و computer vision.
-# سعر ال ETE 4500 جنيه مصرى بدلا من 5000 جنيه.
-# وسعر ال computer vision 6000 جنيه مصرى بدلا من 6500 جنيه مصرى.
-# '''
 
 # @st.experimental_singleton
 @st.cache(allow_output_mutation=True)
@@ -34,7 +27,14 @@ def callback():
     
 
     
-st.button('add new context', on_click= callback)
+add= st.button('add new context', on_click= callback)
+
+if add:
+    st.session_state.count += 1
+
+for i in range(st.session_state.count):
+    head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
+    context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
 # if st.button('add new context', key = 'button'):
     # st.session_state.count += 1
     # if st.session_state.count > 1:
