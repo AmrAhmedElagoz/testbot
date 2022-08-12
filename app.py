@@ -20,22 +20,17 @@ if 'count' not in st.session_state:
 head = st.text_input("enter the topic name")
 context= st.text_area("please enter your topic")
 
-@st.cache(suppress_st_warning=True)
-def callback():
-    # button_state= st.session_state["button"]
-    head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
-    context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
 
     
   
-st.button('add new context', on_click= callback)
+add= st.button('add new context')
 
-# if add:
-#     st.session_state.count += 1
+if add:
+    st.session_state.count += 1
 
-# for i in range(st.session_state.count):
-#     head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
-#     context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
+for i in range(st.session_state.count):
+    head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
+    context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
 # if st.button('add new context', key = 'button'):
     # st.session_state.count += 1
     # if st.session_state.count > 1:
