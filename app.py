@@ -27,12 +27,20 @@ head = st.text_input("enter the topic name")
 context= st.text_area("please enter your topic")
 
 
-if st.button('add new context', key = 10):
-    st.session_state.count += 1
-    if st.session_state.count > 1:
-        for i in range(st.session_state.count - 1):
-            head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
-            context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
+def callback():
+    button_state= st.session_state["button"]
+    head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
+    context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
+    
+
+    
+st.button('add new context', key = 'button', on_click= callback)
+# if st.button('add new context', key = 'button'):
+    # st.session_state.count += 1
+    # if st.session_state.count > 1:
+    #     for i in range(st.session_state.count - 1):
+    #         head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
+    #         context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
 
 
 
@@ -41,8 +49,6 @@ if "history" not in st.session_state:
 
 
 
-def clear():
-    st.session_state["input_text"] = ""
 
 def generate_answer():
     user_message = st.session_state.input_text
@@ -64,9 +70,7 @@ def generate_answer():
             st.session_state.history.append({"message": message_bot['answer'], "is_user": False})
             st.session_state.input_text = ""
             
-            
-            #clear()
-            
+                        
     except:
         print("Empty")
 
