@@ -20,14 +20,14 @@ if 'count' not in st.session_state:
 head = st.text_input("enter the topic name")
 context= st.text_area("please enter your topic")
 
-@st.experimental_singleton
+@st.cache
 def callback():
     # button_state= st.session_state["button"]
     head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
     context= st.text_area("please enter your topic", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
 
-
-
+    
+  
 st.button('add new context', on_click= callback)
 
 # if add:
