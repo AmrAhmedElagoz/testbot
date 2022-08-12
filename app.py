@@ -20,7 +20,7 @@ if 'count' not in st.session_state:
 head = st.text_input("enter the topic name")
 context= st.text_area("please enter your topic")
 
-@st.cache
+@st.cache(suppress_st_warning=True)
 def callback():
     # button_state= st.session_state["button"]
     head = st.text_input("enter the topic name", key=random.choice(string.ascii_uppercase)+str(random.randint(0,999999)))
